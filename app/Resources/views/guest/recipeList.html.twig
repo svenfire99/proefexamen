@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h2>Recepten</h2>
+    <table class="table table-striped">
+        <thead>
+            <td></td>
+            <td>Naam</td>
+            <td>Bereidingswijze</td>
+        </thead>
+        <tbody>
+        {% for recipe in recipes %}
+            <tr>
+                <td>
+                    <img src="{{ asset('images/recepten/'~recipe.name~'.jpg') }}" alt="{{ recipe.name }}" class="img-circle" style="height: 100px; width: auto">
+                </td>
+                <td>
+                    <a href="#">{{ recipe.name }}</a>
+                </td>
+                <td>
+                    <p>{{ recipe.preperation }}</p>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

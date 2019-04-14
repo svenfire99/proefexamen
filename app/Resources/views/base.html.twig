@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Venezia ijssalon{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+            <script href="{{ asset('js/bootstrap.min.js') }}"></script>
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <header class="text-center">
+            <h1>Venezia ijssalon</h1>
+        </header>
+        <nav class="bar navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="col-sm-8">
+                    {% if app.user %}
+                        <a href="{{ path('recipesAdmin') }}" class="navbar-text">Recepten</a>
+                        <a href="{{ path('fruitsAdmin') }}" class="navbar-text">Fruits</a>
+                        <a href="{{ path('orderAdmin') }}" class="navbar-text">Bestellingen</a>
+                    {% else %}
+                        <a href="{{ path('recipeList') }}" class="navbar-text">Recepten</a>
+                        <a href="{{ path('fruitList') }}" class="navbar-text">Fruits</a>
+                    {% endif %}
+                </div>
+                <div class="col-sm-4">
+                {% if app.user %}
+                    <p class="navbar-text navbar-right">Ingelogd als admin  | <a href="{{ path('logout') }}">uitloggen</a></p>
+                {% else %}
+                    <a class="navbar-text navbar-right" href="{{ path('login') }}">Login</a>
+                {% endif %}
+                </div>
+            </div>
+        </nav>
+        <img src="{{ asset('images/venezia2.jpg') }}" alt="afbeelding" style="width: 100%; height: auto; padding-top: 50px;">
+        {% block body %}
+            <div class="content">
+            {% block content %}{% endblock %}
+            </div>
+        {% endblock %}
+        <footer class="bar text-center">
+            <p>Adres: Laan van Meerdervoort 596, 2563 BN Den Haag Telefoon: 070 363 6993 <img src="{{ asset('images/facebook.png') }}" alt="Facebook"> <img src="{{ asset('images/twitter.jpg') }}" alt="Twitter"></p>
+        </footer>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

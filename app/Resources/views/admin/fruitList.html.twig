@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% for fruit in fruits %}
+        <div class="text-center row recipe">
+            <div class="col-sm-4">
+                <a href="{{ path('fruitEdit', {'id': fruit.id}) }}">{{ fruit.name }}</a>
+            </div>
+            <div class="col-sm-4">
+                <p>{{ fruit.season }}</p>
+            </div>
+            <div class="col-sm-2">
+                <img src="{{ asset('images/fruit/'~fruit.name~'.jpg') }}" alt="{{ fruit.name }}" class="img-circle" style="height: 100px; width: 100px">
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

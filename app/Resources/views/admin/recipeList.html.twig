@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% for recipe in recipes %}
+        <div class="text-center row recipe">
+            <div class="col-sm-4">
+                <a href="{{ path('recipeEdit', {'id': recipe.id}) }}">{{ recipe.name }}</a>
+            </div>
+            <div class="col-sm-4">
+                <p>€{{ recipe.priceLiter }}</p>
+            </div>
+            <div class="col-sm-2">
+                <img src="{{ asset('images/recepten/'~recipe.name~'.jpg') }}" alt="{{ recipe.name }}" class="img-circle" style="height: 100px; width: 100px">
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

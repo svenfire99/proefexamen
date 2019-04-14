@@ -1,0 +1,37 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav.navbar {
+    top: auto;
+    position: absolute;
+    box-shadow: none;
+    border-color: #3c3c3c;
+}
+
+.bar p,
+.bar a {
+    margin-top: 15px;
+}
+
+.bar img {
+    width: 48px;
+    height: 48px;
+}
+
+.bar {
+    background: #3c3c3c;
+    color: #9d9d9d;
+    height: 50px;
+    width: 100%;
+}
+
+.login-form input {
+    width: 25%;
+}
+
+.recipe {
+    width: 100%;
+}

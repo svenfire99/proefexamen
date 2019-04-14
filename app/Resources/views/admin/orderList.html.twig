@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h2>Bestellingen   |  <a href="{{ path('orderCreate') }}" >Maak een bestelling aan</a></h2>
+    <table class="table table-striped">
+        <thead>
+            <td>bestelling</td>
+            <td>afhaaldatum</td>
+            <td>klant</td>
+            <td>naam</td>
+            <td>aantal</td>
+        </thead>
+        <tbody>
+        {% for orderRow in orderRows %}
+            <tr>
+                <td>
+                    <a href="{{ path('orderEdit', {'id':orderRow.order.id}) }}">{{ orderRow.order.id }}</a>
+                </td>
+                <td>
+                    <p>{{ orderRow.order.deliveryDate|date('d-m-Y') }}</p>
+                </td>
+                <td>
+                    <p>{{ orderRow.order.customer }}</p>
+                </td>
+                <td>
+                    <p>{{ orderRow.recipe.name }}</p>
+                </td>
+                <td>
+                    <p>{{ orderRow.amount }}</p>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
